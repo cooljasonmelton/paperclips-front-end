@@ -1,6 +1,39 @@
 .App {
   text-align: center;
+  background-color: black;
+  height: 500px;
 }
+
+.test1{
+  margin-top: 50px;
+  height: 300px;
+  background-color: #EAE7DC;
+  color: #8E8D8A;
+}
+
+.test2{
+  margin-top: 50px;
+  height: 300px;
+  background-color: #E85A4F;
+  color: #8E8D8A;
+}
+
+.test3{
+  margin-top: 50px;
+  height: 300px;
+  background-color: #E98074;
+}
+
+
+
+/* COLORS:
+#EAE7DC
+#D8C3A5
+#8E8D8A
+#E98074
+#E85A4F
+
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +68,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
