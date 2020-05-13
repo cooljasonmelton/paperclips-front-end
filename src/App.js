@@ -1,12 +1,19 @@
 import React from 'react';
 import './App.css';
-import TestComp from './components/TestComp'
+import 'semantic-ui-css/semantic.min.css';
+import Navbar from './components/Navbar'
+import Title from './components/Title'
+import Bottom from './components/Bottom'
+
 
 function App() {
   return (
     <div className="App" >
-      <TestComp/>
+      <Title />
+      <Navbar/>
+      {/* Switch between 'dashboard' and 'write' */}
 
+      <Bottom/>
     </div>
 
   );
