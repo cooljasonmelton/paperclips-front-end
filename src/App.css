@@ -3,14 +3,17 @@
 }
 
 .title-container{
-  background-color: #F6FFEE;
+  background-color: white;
   display: flex; 
   align-items: flex-start;
   justify-content:flex-start;
   margin: 10px 0 10px 0;
   padding : 4px;
-  margin-bottom: -14px;
   width: 200px;
+  border-radius: 1em;
+  border-style: outset;
+  border-color: #DD9BCF;
+  box-shadow: 3px 3px 8px #DD9BCF;
  
 }
 
