@@ -1,5 +1,16 @@
 .App{
-  background-color: #F6FFEE;
+  background-color: white;
+  margin: 20px 0px;
+}
+
+.signup-container{
+  background-color: white;
+  margin: auto;
+}
+
+.signup{
+  margin: 3em auto;
+  width: 20em;
 }
 
 .title-container{
@@ -7,7 +18,7 @@
   display: flex; 
   align-items: flex-start;
   justify-content:flex-start;
-  margin: 10px 0 10px 0;
+  margin: 10px auto;
   padding : 4px;
   width: 200px;
   border-radius: 1em;
