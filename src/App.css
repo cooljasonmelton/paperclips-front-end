@@ -1,7 +1,29 @@
 .App{
   background-color: white;
-  margin: 20px 0px;
+  margin: 20px 0;
 }
+
+.dashboard-container{
+  margin: 2vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dash-menu{
+  max-width: 50vw;
+  height: auto;
+  padding: 10px;
+  padding-top: 9vh;
+  flex-shrink: 0;
+}
+
+.dash-calendar{
+  padding: 10px;
+  padding-top: 9vh;
+  width: 70vw;
+  height: auto;
+}
+
 
 .signup-container{
   background-color: white;
