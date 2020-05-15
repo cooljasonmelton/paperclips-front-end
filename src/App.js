@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Title from './components/Title'
 import Bottom from './components/Bottom'
-import Landing from './components/login_components/Landing'
+import SignUp from './components/login_components/SignUp'
+import EntryContainer from './components/entry_components/EntryContainer'
 
 
 
@@ -14,11 +15,19 @@ function App() {
     <BrowserRouter>
       <div className="App" >
         <Title />
-
         <Navbar/>
+
+        <Redirect exact from="/" to="/login" />
+        <Route exact path="/login" component={SignUp} />
+        
         {/* Switch between 'landing' 'dashboard' and 'write' */}
 
-        <Landing/>
+        <Switch>
+          <Route path="/dashboard" component={null} />
+          <Route path="/" component={null} />
+          <Route path="/" component={null} /> } />
+          <Route path="/entry/:entryId" render={(props) => <EntryContainer {...props} /> } />
+        </Switch>
 
         <Bottom/>
       </div>

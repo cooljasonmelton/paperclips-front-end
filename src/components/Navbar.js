@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 import Login from './login_components/Login'
+import { NavLink } from 'react-router-dom'
 
 export default class Navbar extends Component {
   state = { activeItem: 'dashboard' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  handleSignOut = () => {
+    localStorage.removeItem("token")
+    window.location.reload();
+  }
 
   render() {
     const { activeItem } = this.state
@@ -27,23 +33,29 @@ export default class Navbar extends Component {
 
           {/* Conditionally render the next two items based on token */}
 
-            <Menu.Item
-              name='sign out'
-              active={activeItem === 'sign out'}
-              onClick={this.handleItemClick}
-              >
-            </Menu.Item >
+          <Menu.Item>
+            <Button size="mini" onClick={this.handleSignOut}>Sign Out</Button>
+          </Menu.Item>
 
-            <Menu.Item
-              name='log in'
-              active={activeItem === 'log in'}
-              onClick={this.handleItemClick}
-            >
-              <Login/>
-            </Menu.Item >
 
-          </Menu.Menu>
-        </Menu>
+          <Menu.Item>
+            <Login/>
+          </Menu.Item >
+
+        </Menu.Menu>
+      </Menu>
     )
   }
 }
+
+
+
+
+{/* 
+when doing navlinks
+
+<Menu.Item as={NavLink} to="/" name="signout">
+  <Button onClick={this.handleSignOut}>Sign Out</Button>
+</Menu.Item> 
+
+*/}

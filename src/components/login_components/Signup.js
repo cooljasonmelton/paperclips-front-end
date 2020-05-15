@@ -3,10 +3,10 @@ import { Button, Form } from 'semantic-ui-react'
 
 class SignUp extends Component{
     state = {
-        name: "Jason", 
-        email: "jason@email.com",
+        name: "", 
+        email: "",
         currentGoal: 500,
-        password: "jason"
+        password: ""
     }
 
     handleChange = (e) => {
@@ -15,8 +15,8 @@ class SignUp extends Component{
         })
     }
 
-    handleSubmit = () => {
-        console.log(this.state)
+    handleSubmit = e => {
+        e.preventDefault()
 
         const reqObj = {
             method: 'POST',
@@ -36,7 +36,10 @@ class SignUp extends Component{
 
         fetch('http://localhost:3000/users', reqObj)
         .then(r=>r.json())
-        .then(user => console.log(user))
+        .then(user => {
+            console.log(user)
+            localStorage.setItem('token', user.jwt);
+        })
 
     }
 
@@ -61,7 +64,7 @@ class SignUp extends Component{
                     />
                 </Form.Field>
                 <Form.Field>
-                    <label>Work Count Goal:</label>
+                    <label>Daily Work Count Goal:</label>
                     <input type="number" 
                         placeholder='500'
                         name="currentGoal"
