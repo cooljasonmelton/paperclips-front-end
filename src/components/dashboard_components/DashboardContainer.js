@@ -1,4 +1,6 @@
 import React from 'react'
+import './DashboardContainer.css';
+
 import Calendar from './Calendar'
 import DashboardMenu from './DashboardMenu'
 import { Segment } from 'semantic-ui-react'

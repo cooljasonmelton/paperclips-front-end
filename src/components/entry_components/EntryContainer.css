@@ -1,0 +1,19 @@
+.entry-container{
+    margin: 2vh;
+    display: flex;
+    justify-content: space-around;
+    min-height: 80vh;
+}
+
+.prompt-menu{
+    max-width: 50vw;
+    height: auto;
+    padding: 5.3vh 1vw;
+    flex-shrink: 0;
+}
+
+.entry-div{
+    padding: 5vh 1vw;
+    width: 70vw;
+    height: auto;
+}
