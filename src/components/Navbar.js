@@ -21,7 +21,7 @@ class Navbar extends Component {
     const { activeItem } = this.state
 
     return (
-        <Menu className="menu1" attached='top' tabular style={{backgroundColor: "white"}}> 
+        <Menu className="menu1" attached='top' tabular style={{minHeight: "15vh",backgroundColor: "white"}}> 
           <Menu.Item 
             name='dashboard'
             active={activeItem === 'dashboard'}

@@ -1,24 +1,17 @@
 import React, { Component } from 'react'
 import { Form, Segment } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
+import { prettyDate, dateEntryId } from '../../date_functions/dates'
+
 
 class Entry extends Component {
   state = {
-    content: "", 
+    content: "",
 }
 
-currentDate = () => {
-    let today = new Date();
-
-    let dd = String(today.getDate()).padStart(2, '0');
-    let thisDay = String(today.getDate())
-
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); 
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    let thisMonth = months[today.getMonth()]
-
-    let yyyy = today.getFullYear();
-
-    return today = thisMonth + ' ' + thisDay + ', ' + yyyy;
+componentDidMount() {
+    // update content from BE
 }
 
 currentWordCount = () => {
@@ -37,44 +30,52 @@ handleChange = (e) => {
 
 handleSubmit = e => {
     e.preventDefault()
-    console.log(this.state)
 
-    // const reqObj = {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json' 
-    //     },
-    //     body: JSON.stringify(this.state)
-    // }
+    const reqObj = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({
+            userId: this.props.state.id,
+            wordCount: this.state.content.split(' ').length,
+            goal: this.props.state.currentGoal,
+            content: this.state.content,
+            date: dateEntryId() 
 
-    // fetch('http://localhost:3000/entry/:id', reqObj)
-    // .then(r=>r.json())
-    // .then(user => {
-    //     console.log(user)
-    //     localStorage.setItem('token', user.jwt);
-    // })
+        })
+    }
+    console.log(reqObj)
+
+    fetch('http://localhost:3000/entries', reqObj)
+    .then(r=>r.json())
+    .then(data => {
+        console.log(data)
+    })
 }
 
   render() {
+    console.log(this.props.state)
+
     return (
         <>
             <Segment> 
                 <div className="entry-header">
-                    <div className="entry-header-item"> <h3>{this.currentDate()}</h3></div>
-                    <div className="entry-header-item"> <h3>Goal: 'make me dynamic'</h3> </div>
-                    <div className="entry-header-item"> <h3>Current: {this.currentWordCount()}</h3></div>
+                    <div className="entry-header-item"> <h3>{prettyDate()}</h3></div>
+                    <div className="entry-header-item"> <h3>Word Count: {this.currentWordCount()}</h3></div>
+                    <div className="entry-header-item"> <h3>Goal: { this.props.state.currentGoal }</h3> </div>
                 </div>
             </Segment>
             <Segment> 
                 <Form style={{padding: "10px"}} onSubmit={this.handleSubmit}>
                     <Form.TextArea
-                        style={{border: 0, minHeight: '40vh'}}
+                        style={{border: 0, minHeight: '40vh', fontSize: '3vh'}}
                         name="content"
                         label=""
                         onChange={this.handleChange}
                         value={this.state.content}
                     />
-                    <Form.Button style={{float: "right"}}> Save </Form.Button>
+                    <Form.Button type="submit" style={{float: "right"}}> Save </Form.Button>
                 </Form>
             </Segment>
         </>
@@ -82,4 +83,17 @@ handleSubmit = e => {
   }
 }
 
-export default Entry
+
+const mapStateToProps = state => {
+    return {
+      state: state.login
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+    };
+};
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Entry));

@@ -11,6 +11,7 @@ import DashboardContainer from './components/dashboard_components/DashboardConta
 
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,9 +19,8 @@ function App() {
         <Title />
         <Navbar/>
 
-        <Redirect exact from="/" to="/login" />
+        {/* <Redirect exact from="/" to="/login" /> */}
         <Route exact path="/login" component={SignUp} />
-        
 
         <Switch>
           <Route path="/dashboard" component={DashboardContainer} />

@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 class Login extends Component{
     state = {
-        email: "", 
-        password: ""
+        email: "jason@email.com", 
+        password: "jason"
     }
 
     handleChange = (e) => {
@@ -41,7 +41,7 @@ class Login extends Component{
                     entries: user.entries,
                     current_goal: user.current_goal
                 })
-                this.props.history.push('/dashboard')
+                // this.props.history.push('/dashboard')
             }
             
         })
