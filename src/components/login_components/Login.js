@@ -41,7 +41,7 @@ class Login extends Component{
                     entries: user.entries,
                     current_goal: user.current_goal
                 })
-                // this.props.history.push('/dashboard')
+                this.props.history.push('/dashboard')
             }
             
         })

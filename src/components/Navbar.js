@@ -3,23 +3,43 @@ import { Menu, Button } from 'semantic-ui-react'
 import Login from './login_components/Login'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
-
+import { dateEntryId } from '../date_functions/dates'
 
 
 class Navbar extends Component {
-  state = { activeItem: 'dashboard' }
+  state = { activeItem: '' }
+  
+  handleItemClick = (e, { name }) => {
+    if (name === 'dashboard') {
+      this.props.history.push('/dashboard')
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-  handleSignOut = () => {
-    localStorage.removeItem("token")
-    window.location.reload();
-    this.props.history.push('/login')
+    } else if (name === 'write') {
+      this.props.history.push(`/entry/${dateEntryId()}`)
+    }
   }
 
-  render() {
-    const { activeItem } = this.state
+  handleSignOut = () => {
+    this.state.activeItem = ''
+    localStorage.removeItem("token")
+    this.props.history.push("/login")
+    this.props.logout()
+  }
 
+  setActiveItem = () => {
+    const { pathname } = this.props.history.location
+    if (pathname === '/dashboard'){
+      this.state.activeItem = 'dashboard'
+    } else if (pathname.substring(0, 6) === '/entry'){
+      this.state.activeItem = 'write'
+    } else {
+      this.state.activeItem = ''
+    }
+  }
+
+
+  render() {
+    this.setActiveItem()
+    const { activeItem } = this.state
     return (
         <Menu className="menu1" attached='top' tabular style={{minHeight: "15vh",backgroundColor: "white"}}> 
           <Menu.Item 
@@ -50,22 +70,16 @@ class Navbar extends Component {
   }
 }
 
-
 const mapStateToProps = state => {
   return {
     state: state
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Navbar));
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch({ type: 'LOGOUT_USER' })
+  };
+};
 
-
-
-{/* 
-when doing navlinks
-
-<Menu.Item as={NavLink} to="/" name="signout">
-  <Button onClick={this.handleSignOut}>Sign Out</Button>
-</Menu.Item> 
-
-*/}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

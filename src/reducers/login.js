@@ -1,17 +1,24 @@
 export default function login(state = {
-    email: "",
+    id: "",
     }, action) {
     switch (action.type) {
         case 'LOGIN_USER':
+            const {id, name, email, entries, current_goal} = action.payload
             return { 
-                id: action.payload.id,
-                name: action.payload.name,
-                email: action.payload.email,
-                enties: action.payload.entries,
-                currentGoal: action.payload.current_goal
+                id: id,
+                name: name,
+                email: email,
+                enties: entries,
+                currentGoal: current_goal
             };
         case 'LOGOUT_USER':
-            return {email: ""}
+            return {                
+                id: "",
+                name: "",
+                email: "",
+                enties: "",
+                currentGoal: ""
+            }
         default:
             return state;
     }

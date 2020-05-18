@@ -55,8 +55,6 @@ handleSubmit = e => {
 }
 
   render() {
-    console.log(this.props.state)
-
     return (
         <>
             <Segment> 

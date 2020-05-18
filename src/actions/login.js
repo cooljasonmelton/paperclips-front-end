@@ -1,3 +1,3 @@
-export const login = username => {
+export const login = userObj => {
     return { type: 'LOGIN_USER' };
 };
