@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+
 
 class SignUp extends Component{
     state = {
@@ -36,9 +38,22 @@ class SignUp extends Component{
 
         fetch('http://localhost:3000/users', reqObj)
         .then(r=>r.json())
-        .then(user => {
-            console.log(user)
-            localStorage.setItem('token', user.jwt);
+        .then(userObj => {
+            if (userObj.error){
+                alert(userObj.error)
+            } else{
+                const {jwt, user} = userObj
+                localStorage.setItem('token', jwt);
+                this.props.login({
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    entries: user.entries,
+                    current_goal: user.current_goal
+                })
+                this.props.history.push('/dashboard')
+            }
+
         })
 
     }
@@ -88,14 +103,16 @@ class SignUp extends Component{
 }
 
 
-export default SignUp
+const mapDispatchToProps = dispatch => {
+    return {
+      login: formData => dispatch({ type: 'LOGIN_USER', payload: formData })
+    };
+};
 
+const mapStateToProps = state => {
+    return {
+      state: state
+    }
+}
 
-// to check jwt token
-
-// fetch('http://localhost:3000/api/v1/profile', {
-//   method: 'GET',
-//   headers: {
-//     Authorization: `Bearer <token>`
-//   }
-// })
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
 import Login from './login_components/Login'
-import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
 
-export default class Navbar extends Component {
+
+
+class Navbar extends Component {
   state = { activeItem: 'dashboard' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -11,6 +14,7 @@ export default class Navbar extends Component {
   handleSignOut = () => {
     localStorage.removeItem("token")
     window.location.reload();
+    this.props.history.push('/login')
   }
 
   render() {
@@ -31,23 +35,29 @@ export default class Navbar extends Component {
           
           <Menu.Menu position='right'>
 
-          {/* Conditionally render the next two items based on token */}
-
-          <Menu.Item>
-            <Button size="mini" onClick={this.handleSignOut}>Sign Out</Button>
-          </Menu.Item>
-
-
-          <Menu.Item>
-            <Login/>
-          </Menu.Item >
-
+          {this.props.state.login.id ?
+            <Menu.Item>
+              <Button size="mini" onClick={this.handleSignOut}>Sign Out</Button>
+            </Menu.Item>
+            :
+            <Menu.Item>
+             <Login/>
+            </Menu.Item >
+          }
         </Menu.Menu>
       </Menu>
     )
   }
 }
 
+
+const mapStateToProps = state => {
+  return {
+    state: state
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(Navbar));
 
 
 

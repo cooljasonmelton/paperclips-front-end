@@ -18,10 +18,9 @@ function App() {
         <Title />
         <Navbar/>
 
-        {/* <Redirect exact from="/" to="/login" /> */}
+        <Redirect exact from="/" to="/login" />
         <Route exact path="/login" component={SignUp} />
         
-        {/* Switch between 'landing' 'dashboard' and 'write' */}
 
         <Switch>
           <Route path="/dashboard" component={DashboardContainer} />
@@ -38,14 +37,3 @@ function App() {
 }
 
 export default App;
-
-
-{/* <Redirect exact from="/" to="/login" />
-  <Route exact path="/login" component={Login} />
-
-<Switch>
-  <Route path="/dashboard" component={Dashboard} />
-  <Route path="/note/new" component={NoteFormContainer} />
-  <Route path="/note/prev/:noteId" component={BigNoteContainer} /> } />
-  <Route path="/note/:noteId" render={(props) => <EditFormContainer {...props} /> } />
-</Switch> */}

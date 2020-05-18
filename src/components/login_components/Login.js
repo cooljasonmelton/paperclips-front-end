@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
+
 
 class Login extends Component{
     state = {
-        email: "jason@email.com", 
-        password: "jason"
+        email: "", 
+        password: ""
     }
 
     handleChange = (e) => {
@@ -15,8 +18,6 @@ class Login extends Component{
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log(this.state)
-
         const reqObj = {
             method: 'POST',
             headers: {
@@ -27,9 +28,22 @@ class Login extends Component{
 
         fetch('http://localhost:3000/login', reqObj)
         .then(r=>r.json())
-        .then(user => {
-            console.log(user)
-            localStorage.setItem('token', user.jwt);
+        .then(userObj => {
+            if (userObj.error){
+                alert(userObj.error)
+            } else{
+                const {jwt, user} = userObj
+                localStorage.setItem('token', jwt);
+                this.props.login({
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    entries: user.entries,
+                    current_goal: user.current_goal
+                })
+                this.props.history.push('/dashboard')
+            }
+            
         })
     }
 
@@ -63,4 +77,16 @@ class Login extends Component{
 }
 
 
-export default Login
+const mapDispatchToProps = dispatch => {
+    return {
+      login: formData => dispatch({ type: 'LOGIN_USER', payload: formData })
+    };
+};
+
+const mapStateToProps = state => {
+    return {
+      state: state
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
