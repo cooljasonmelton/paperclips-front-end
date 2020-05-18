@@ -13,7 +13,18 @@
 }
 
 .entry-div{
-    padding: 5vh 1vw;
+    padding: 5vh 5vw;
     width: 70vw;
     height: auto;
 }
+
+.entry-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.entry-header-item {
+    margin: 10px;
+}
+

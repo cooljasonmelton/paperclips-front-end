@@ -12,7 +12,6 @@ const EntryContainer = () => {
                 <PromptMenu/>
             </div>
             <div className="entry-div">
-                <EntryHeader/>
                 <Entry/>
             </div>
         </div>
