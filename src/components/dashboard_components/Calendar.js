@@ -2,18 +2,9 @@ import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction';
-
 import './main.scss' 
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
-import { prettyDate, dateEntryId } from '../../date_functions/dates'
-
-
-// sort entries by 'met goal'
-// create event for each day 'missed' or 'achieved'
-// later badges when a certain amount of dates hit in a row
-// have some container for badges earned
-
 
 class Calendar extends React.Component {
   state = {
@@ -31,11 +22,9 @@ class Calendar extends React.Component {
   renderFirstDay = () =>{
     const { entries } = this.props.state.login
     if (entries.length > 0){
-
-      let firstWroteToday = [entries[0]].map(entry => {
+      return [entries[0]].map(entry => {
         return { title: '** FIRST DAY **', date: entry.created_at.substring(0, 10)}
       })
-      return firstWroteToday
     }
   }
 
@@ -49,6 +38,7 @@ class Calendar extends React.Component {
       })
     }
   }
+
   renderWroteToday = () =>{
     const { entries } = this.props.state.login
     if (entries.length > 0){
@@ -96,7 +86,6 @@ class Calendar extends React.Component {
     />
     )
   }
-
 }
 
 const mapStateToProps = state => {

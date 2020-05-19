@@ -51,15 +51,11 @@ handleSubmit = e => {
             goal: this.props.state.login.currentGoal,
             content: this.state.content,
             date: dateEntryId() 
-
         })
     }
-    console.log(reqObj)
-
     fetch('http://localhost:3000/entries', reqObj)
     .then(r=>r.json())
     .then(entry => {
-        console.log(entry.content)
         this.props.login({
             entry: entry
         })
@@ -67,7 +63,6 @@ handleSubmit = e => {
 }
 
   render() {
-      console.log(this.props.state)
     return (
         <>
             <Segment> 
@@ -80,7 +75,7 @@ handleSubmit = e => {
             <Segment> 
                 <Form style={{padding: "10px"}} onBlur={this.handleSubmit} onSubmit={this.handleSubmit}>
                     <Form.TextArea
-                        style={{border: 0, minHeight: '40vh', fontSize: '3vh'}}
+                        style={{border: 0, minHeight: '50vh', fontSize: '3vh'}}
                         name="content"
                         label=""
                         onChange={this.handleChange}

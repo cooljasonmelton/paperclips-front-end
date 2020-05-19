@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Menu, Button } from 'semantic-ui-react'
+import { Segment, Menu, Button } from 'semantic-ui-react'
 import Login from './login_components/Login'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import { dateEntryId } from '../date_functions/dates'
+import Title from './Title'
 
 
 class Navbar extends Component {
@@ -40,20 +41,24 @@ class Navbar extends Component {
   render() {
     this.setActiveItem()
     const { activeItem } = this.state
-    return (
-        <Menu className="menu1" attached='top' tabular style={{minHeight: "15vh",backgroundColor: "white"}}>
+    return (      
+        <Menu className="menu1" attached='top' tabular style={{backgroundColor: "white"}}>
+          <div className='navbar-title'>
+            <Title/>
+          </div>
+
           {this.props.state.login.id ? 
           <>
-          <Menu.Item 
-            name='dashboard'
-            active={activeItem === 'dashboard'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='write'
-            active={activeItem === 'write'}
-            onClick={this.handleItemClick}
-          />
+            <Menu.Item 
+              name='dashboard'
+              active={activeItem === 'dashboard'}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name='write'
+              active={activeItem === 'write'}
+              onClick={this.handleItemClick}
+            />
           </>
           :
           <div></div>

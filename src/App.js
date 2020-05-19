@@ -16,16 +16,11 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App" >
-        <Title />
         <Navbar/>
-
         {/* <Redirect exact from="/" to="/login" /> */}
-
         <Switch>
           <Route exact path="/login" component={SignUp} />
           <Route path="/dashboard" component={DashboardContainer} />
-          {/* <Route path="/" component={null} />
-          <Route path="/" component={null} /> */}
           <Route path="/entry/:entryId" render={(props) => <EntryContainer {...props} /> } />
         </Switch>
 

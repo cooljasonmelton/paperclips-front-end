@@ -1,6 +1,5 @@
 import React from 'react'
 import './DashboardContainer.css';
-
 import Calendar from './Calendar'
 import DashboardMenu from './DashboardMenu'
 import { Segment } from 'semantic-ui-react'
@@ -8,7 +7,7 @@ import { Segment } from 'semantic-ui-react'
 
 const DashboardContainer = () => {
     return (
-        <div className='dashboard-container'>
+        <div className='dashboard-container' style={{backgroundColor: ""}}>
             <div className='dash-menu'>
                 <DashboardMenu />
             </div>
@@ -22,3 +21,9 @@ const DashboardContainer = () => {
 }
 
 export default DashboardContainer
+
+// #C6FAD2 
+// #DD9BCF
+// #F6FFEE
+// #F48882
+// #FAD2CC
