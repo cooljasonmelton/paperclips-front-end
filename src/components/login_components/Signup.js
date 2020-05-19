@@ -90,7 +90,7 @@ class SignUp extends Component{
                 <Form.Field>
                     <label>Password:</label>
                     <input type="password" 
-                        placeholder='p@s$w0rD' 
+                        placeholder='password' 
                         name="password"
                         value={this.state.password}
                         onChange={this.handleChange}

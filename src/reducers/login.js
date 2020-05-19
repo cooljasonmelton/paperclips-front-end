@@ -1,5 +1,9 @@
 export default function login(state = {
     id: "",
+    name: "",
+    email: "",
+    entries: [],
+    currentGoal: "" 
     }, action) {
     switch (action.type) {
         case 'LOGIN_USER':
@@ -8,7 +12,7 @@ export default function login(state = {
                 id: id,
                 name: name,
                 email: email,
-                enties: entries,
+                entries: entries,
                 currentGoal: current_goal
             };
         case 'LOGOUT_USER':
@@ -16,8 +20,23 @@ export default function login(state = {
                 id: "",
                 name: "",
                 email: "",
-                enties: "",
+                entries: [],
                 currentGoal: ""
+            }
+        case 'UPDATE_ENTRY':
+            let updatedEntries = state.entries.map(e => {
+                if (e.id === action.payload.entry.id) {
+                    e.goal = action.payload.entry.goal
+                    e.wordcount = action.payload.entry.wordcount
+                    e.content = action.payload.entry.content
+                    return e
+                } else {
+                    return e
+                }
+            })
+            return {
+                ...state,
+                entries: updatedEntries
             }
         default:
             return state;

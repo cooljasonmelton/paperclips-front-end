@@ -41,7 +41,9 @@ class Navbar extends Component {
     this.setActiveItem()
     const { activeItem } = this.state
     return (
-        <Menu className="menu1" attached='top' tabular style={{minHeight: "15vh",backgroundColor: "white"}}> 
+        <Menu className="menu1" attached='top' tabular style={{minHeight: "15vh",backgroundColor: "white"}}>
+          {this.props.state.login.id ? 
+          <>
           <Menu.Item 
             name='dashboard'
             active={activeItem === 'dashboard'}
@@ -52,12 +54,16 @@ class Navbar extends Component {
             active={activeItem === 'write'}
             onClick={this.handleItemClick}
           />
+          </>
+          :
+          <div></div>
+          }
           
           <Menu.Menu position='right'>
 
           {this.props.state.login.id ?
             <Menu.Item>
-              <Button size="mini" onClick={this.handleSignOut}>Sign Out</Button>
+              <Button onClick={this.handleSignOut}>Sign Out</Button>
             </Menu.Item>
             :
             <Menu.Item>
