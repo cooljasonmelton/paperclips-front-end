@@ -42,17 +42,13 @@ class Calendar extends React.Component {
   renderCompletedGoal = () =>{
     const { entries } = this.props.state.login
     if (entries.length > 0){
-      let completedGoal = entries.map(entry => {
+      return entries.map(entry => {
         if (entry.wordcount >= entry.goal){
           return { title: '** HIT GOAL! **', date: entry.created_at.substring(0, 10)}
-        } else {
-          return { title: 'MISSED GOAL', date: entry.created_at.substring(0, 10)}
-        }
+        } return {}
       })
-      return completedGoal
     }
   }
-
   renderWroteToday = () =>{
     const { entries } = this.props.state.login
     if (entries.length > 0){
@@ -62,15 +58,9 @@ class Calendar extends React.Component {
     }
   }
 
-
-
-
-
   handleDateClick = () => {
     console.log('click')
   }
-
-   
 
   render() {
     return (    
@@ -119,6 +109,5 @@ const mapDispatchToProps = dispatch => {
   return {
   };
 };
-
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Calendar));
