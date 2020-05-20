@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment, Menu, Button } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 import Login from './login_components/Login'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
@@ -20,7 +20,7 @@ class Navbar extends Component {
   }
 
   handleSignOut = () => {
-    this.state.activeItem = ''
+    this.setState({activeItem: ''})
     localStorage.removeItem("token")
     this.props.history.push("/login")
     this.props.logout()

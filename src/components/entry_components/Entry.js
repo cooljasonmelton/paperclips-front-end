@@ -16,12 +16,11 @@ componentDidMount(){
 
 getContent = () => {
     let { entries } = this.props.state.login
-    console.log(entries)
 
     let todayEntry = entries.filter(entry => {
         return entry.created_at.substring(0,10) === dateEntryId()
     })
-    console.log(todayEntry)
+
     if (todayEntry.length > 0){
         this.setState({
             content: todayEntry[0].content
@@ -84,11 +83,11 @@ handleSubmit = e => {
             <h4>LOADING...</h4>
             :
             <Segment> 
-                <Form style={{padding: "10px"}} onBlur={this.handleSubmit} onSubmit={this.handleSubmit}>
+                <Form style={{padding: "10px"}} onBlur={this.handleSubmit} >
                     <Form.TextArea
-                        style={{border: 0, minHeight: '50vh', fontSize: '3vh'}}
+                        style={{border: 0, minHeight: '50vh', fontSize: '2.25vh'}}
                         name="content"
-                        label=""
+                        label="today's entry"
                         onChange={this.handleChange}
                         value={this.state.content}
                     />

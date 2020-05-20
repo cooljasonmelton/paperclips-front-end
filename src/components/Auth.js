@@ -9,10 +9,15 @@ class Auth extends Component {
         if (this.props.state.login.id === "") {
             this.props.history.push('/login')           
         }
-
-
-
     }
+
+
+    componentDidMount(){
+        
+    }
+
+
+
     render(){
         return<></>
     }
