@@ -5,7 +5,7 @@
 }
 
 .prompt-menu{
-    max-width: 50vw;
+    max-width: 17vw;
     height: auto;
     padding: 5.3vh 1vw;
     flex-shrink: 0;
@@ -24,6 +24,10 @@
 }
 
 .entry-header-item {
-    margin: 10px;
+    margin: 0;
 }
 
+.calendar-link:hover {
+    color: blue;
+    
+}

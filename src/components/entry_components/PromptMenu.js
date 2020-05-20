@@ -5,7 +5,11 @@ import { Menu, Message } from 'semantic-ui-react'
 
 export default class PromptMenu extends React.Component {
   state = {}
-  handleClick = () => this.setState({ message: 'You Clicked Something' })
+  handleClick = () => {
+    fetch('http://localhost:3000/prompts')
+    .then(r=>r.json())
+    .then(prompt => this.setState({ message: prompt.content }))
+  }
 
   render() {
     const { message } = this.state

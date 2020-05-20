@@ -53,9 +53,7 @@ class SignUp extends Component{
                 })
                 this.props.history.push('/dashboard')
             }
-
         })
-
     }
 
     render(){

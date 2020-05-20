@@ -21,10 +21,15 @@ const EntryPreview = props => {
         <div className="entry-preview-div">
             <Segment> 
                 <div className="entry-header">
-                    <div className="entry-header-item"> <h3>{getDate()}</h3></div>
-                    <div className="entry-header-item"> <h3>Word Count: {wordcount}</h3></div>
-                    <div className="entry-header-item"> <h3>Goal: {goal}</h3> </div>
-                    <Button onClick={props.togglePreview}>Return to Calendar</Button>
+                    <div className="entry-header-item" > 
+                        <a className='calendar-link' onClick={props.togglePreview}><h3>{getDate()}</h3></a>
+                    </div>
+                    <div className="entry-header-item"> 
+                        <h3>Word Count: {wordcount}</h3>
+                    </div>
+                    <div className="entry-header-item"> 
+                        <h3>Goal: {goal}</h3> 
+                    </div>
                 </div>
             </Segment>
             <Segment>
