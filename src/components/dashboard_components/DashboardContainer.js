@@ -3,20 +3,25 @@ import './DashboardContainer.css';
 import Calendar from './Calendar'
 import DashboardMenu from './DashboardMenu'
 import { Segment } from 'semantic-ui-react'
+import Auth from '../Auth'
+
 
 
 const DashboardContainer = () => {
     return (
-        <div className='dashboard-container' style={{backgroundColor: ""}}>
-            <div className='dash-menu'>
-                <DashboardMenu />
+        <>
+            <div className='dashboard-container' style={{backgroundColor: ""}}>
+                <div className='dash-menu'>
+                    <DashboardMenu />
+                </div>
+                <div className='dash-calendar'>
+                    <Segment >
+                        <Calendar/>
+                    </Segment>
+                </div>
             </div>
-            <div className='dash-calendar'>
-                <Segment >
-                    <Calendar/>
-                </Segment>
-            </div>
-        </div>
+            <Auth/>
+        </>
     )
 }
 

@@ -24,16 +24,25 @@ export default function login(state = {
                 currentGoal: ""
             }
         case 'UPDATE_ENTRY':
-            let updatedEntries = state.entries.map(e => {
-                if (e.id === action.payload.entry.id) {
-                    e.goal = action.payload.entry.goal
-                    e.wordcount = action.payload.entry.wordcount
-                    e.content = action.payload.entry.content
-                    return e
-                } else {
-                    return e
-                }
+            let checkExist = state.entries.filter(e=>{
+                return (e.id === action.payload.entry.id)
             })
+            let updatedEntries
+            if (checkExist.length > 0){
+                updatedEntries = state.entries.map(e => {
+                    if (e.id === action.payload.entry.id) {
+                        e.goal = action.payload.entry.goal
+                        e.wordcount = action.payload.entry.wordcount
+                        e.content = action.payload.entry.content
+                        return e
+                    } else {
+                        return e
+                    }
+                })
+            } else {
+                updatedEntries = state.entries
+                updatedEntries.push(action.payload.entry)
+            }
             return {
                 ...state,
                 entries: updatedEntries

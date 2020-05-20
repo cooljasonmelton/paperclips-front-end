@@ -7,15 +7,21 @@ import { prettyDate, dateEntryId } from '../../date_functions/dates'
 
 class Entry extends Component {
   state = {
-    content: "",
+    content: ""
 }
 
-componentDidMount = () => {
+componentDidMount(){
+    this.getContent()
+}
+
+getContent = () => {
     let { entries } = this.props.state.login
+    console.log(entries)
 
     let todayEntry = entries.filter(entry => {
         return entry.created_at.substring(0,10) === dateEntryId()
     })
+    console.log(todayEntry)
     if (todayEntry.length > 0){
         this.setState({
             content: todayEntry[0].content
@@ -59,6 +65,8 @@ handleSubmit = e => {
         this.props.login({
             entry: entry
         })
+        console.log(this.props.state)
+        this.getContent()
     })
 }
 
@@ -72,6 +80,9 @@ handleSubmit = e => {
                     <div className="entry-header-item"> <h3>Goal: { this.props.state.login.currentGoal }</h3> </div>
                 </div>
             </Segment>
+            {!this.props.state.login.entries ?
+            <h4>LOADING...</h4>
+            :
             <Segment> 
                 <Form style={{padding: "10px"}} onBlur={this.handleSubmit} onSubmit={this.handleSubmit}>
                     <Form.TextArea
@@ -84,6 +95,7 @@ handleSubmit = e => {
                     <Form.Button  type="submit" style={{float: "right"}}> Save </Form.Button>
                 </Form>
             </Segment>
+            }
         </>
     )
   }
