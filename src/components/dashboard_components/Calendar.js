@@ -5,10 +5,12 @@ import interactionPlugin from '@fullcalendar/interaction';
 import './main.scss' 
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
+import EntryPreview from './EntryPreview';
 
 class Calendar extends React.Component {
   state = {
-    events: []
+    events: [],
+    showPreview: false
   }
 
   getFirstDay = () => {
@@ -48,42 +50,70 @@ class Calendar extends React.Component {
     }
   }
 
-  handleDateClick = () => {
-    console.log('click')
+  togglePreview = () => {
+    this.setState(prevState => ({ showPreview: !prevState.showPreview}))
+  }
+
+  handleDateClick = e => {
+    const { entries } = this.props.state.login
+
+    entries.forEach(entry => {
+      if (entry.created_at.substring(0,10) === e.dateStr) {
+        this.props.datePreview({
+          id: entry.id,
+          content: entry.content,
+          wordcount: entry.wordcount,
+          goal: entry.goal,
+          created_at: entry.created_at
+        })
+        this.togglePreview()
+      }
+    })
+
   }
 
   render() {
-    return (    
-      <FullCalendar 
-      plugins={[ dayGridPlugin, interactionPlugin]} 
-      header={{
-        left:   'title',
-        center: '',
-        right:  'today prev,next'
-      }}
-      dateClick={this.handleDateClick}
-      defaultView="dayGridMonth" 
-      eventSources={[
-        {
-          events: this.renderFirstDay(),
-          color: "green", 
-          textColor: "white"
+    return (
+      <>
+        {this.state.showPreview ?
 
-        },
-        {
-          events: this.renderWroteToday(),
-          color: "gray", 
-          textColor: "white"
+        <EntryPreview togglePreview={this.togglePreview} />
 
-        },
-        {
-          events: this.renderCompletedGoal(),
-          color: "blue", 
-          textColor: "white"
-        }
-      ]}
+        :
         
-    />
+        <FullCalendar 
+        plugins={[ dayGridPlugin, interactionPlugin]} 
+        header={{
+          left:   'title',
+          center: '',
+          right:  'today prev,next'
+        }}
+        dateClick={this.handleDateClick}
+        defaultView="dayGridMonth" 
+        eventSources={[
+          {
+            events: this.renderFirstDay(),
+            color: "green", 
+            textColor: "white"
+
+          },
+          {
+            events: this.renderWroteToday(),
+            color: "gray", 
+            textColor: "white"
+
+          },
+          {
+            events: this.renderCompletedGoal(),
+            color: "blue", 
+            textColor: "white"
+          }
+        ]}
+      />
+      }
+    
+
+    </>
     )
   }
 }
@@ -96,6 +126,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    datePreview: formData => dispatch({ type: 'UPDATE_DATE_PREVIEW', payload: formData })
   };
 };
 

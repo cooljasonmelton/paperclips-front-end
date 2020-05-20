@@ -49,7 +49,7 @@ class Login extends Component{
 
     render(){
         return(
-            <Form onSubmit={this.handleSubmit} style={{backgroundColor:"white"}}>
+            <Form onSubmit={this.handleSubmit} style={{  backgroundColor:"white"}}>
                 <Form.Group>
                     <Form.Field>
                         <label>Email:</label>

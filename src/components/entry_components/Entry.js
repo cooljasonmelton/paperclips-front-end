@@ -87,7 +87,7 @@ handleSubmit = e => {
                     <Form.TextArea
                         style={{border: 0, minHeight: '50vh', fontSize: '2.25vh'}}
                         name="content"
-                        label="today's entry"
+                        label=""
                         onChange={this.handleChange}
                         value={this.state.content}
                     />

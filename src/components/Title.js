@@ -18,7 +18,6 @@ class Title extends Component{
           })
             .then(r => r.json())
             .then(userObj => {
-              console.log(userObj)
               if (userObj.error) {
                 localStorage.removeItem("token")
               } else {
@@ -37,7 +36,6 @@ class Title extends Component{
     }
 
     render(){
-        console.log(this.props)
         return (
             <div className="title-container">
                 <img className="title-pic" 
