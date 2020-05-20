@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 class Login extends Component{
     state = {
-        email: "jason@email.com", 
-        password: "jason"
+        email: "", 
+        password: ""
     }
 
     handleChange = (e) => {
@@ -49,11 +49,11 @@ class Login extends Component{
 
     render(){
         return(
-            <Form onSubmit={this.handleSubmit} style={{  backgroundColor:"white"}}>
+            <Form onSubmit={this.handleSubmit} style={{ paddingTop: "2.5vh", backgroundColor:"white"}}>
                 <Form.Group>
                     <Form.Field>
                         <label>Email:</label>
-                        <input placeholder='email@email.email' 
+                        <input placeholder='email@email.com' 
                             name="email"
                             value={this.state.email}
                             onChange={this.handleChange}

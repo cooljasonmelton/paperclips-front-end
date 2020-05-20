@@ -1,8 +1,7 @@
 .entry-container{
-    margin: 2vh;
     display: flex;
     justify-content: space-around;
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .prompt-menu{

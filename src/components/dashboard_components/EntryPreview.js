@@ -18,7 +18,7 @@ const EntryPreview = props => {
     }
 
     return (
-        <>
+        <div className="entry-preview-div">
             <Segment> 
                 <div className="entry-header">
                     <div className="entry-header-item"> <h3>{getDate()}</h3></div>
@@ -33,7 +33,7 @@ const EntryPreview = props => {
                 </p>
 
             </Segment>
-        </>
+        </div>
     )
 }
 

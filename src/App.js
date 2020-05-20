@@ -22,7 +22,6 @@ const App = () => {
             <Route path="/dashboard" component={DashboardContainer} />
             <Route path="/entry/:entryId" render={(props) => <EntryContainer {...props} /> } />
           </Switch>
-          <Bottom/>
         </div>
       </BrowserRouter>
     );

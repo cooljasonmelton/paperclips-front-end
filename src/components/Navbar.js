@@ -50,11 +50,13 @@ class Navbar extends Component {
           {this.props.state.login.id ? 
           <>
             <Menu.Item 
+              style={{backgroundColor: "white"}}
               name='dashboard'
               active={activeItem === 'dashboard'}
               onClick={this.handleItemClick}
             />
             <Menu.Item
+              style={{backgroundColor: "white"}}
               name='write'
               active={activeItem === 'write'}
               onClick={this.handleItemClick}

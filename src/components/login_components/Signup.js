@@ -72,7 +72,7 @@ class SignUp extends Component{
                 </Form.Field>
                 <Form.Field>
                     <label>Email:</label>
-                    <input placeholder='writingdude@email.com'
+                    <input placeholder='email@email.com'
                         name="email"
                         value={this.state.email}
                         onChange={this.handleChange} 

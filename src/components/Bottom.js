@@ -3,7 +3,7 @@ import { Segment } from 'semantic-ui-react'
 
 const Title = () => {
     return (
-        <Segment attached='bottom'>
+        <Segment attached='bottom' style={{backgroundColor: "white"}}>
         </Segment>
     )
 }
