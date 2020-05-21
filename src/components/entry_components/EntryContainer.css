@@ -1,14 +1,14 @@
 .entry-container{
+    background-color: white;
     display: flex;
     justify-content: space-around;
     min-height: 100vh;
 }
 
 .prompt-menu{
-    max-width: 17vw;
+    max-width: 25vw;
     height: auto;
     padding: 5.3vh 1vw;
-    flex-shrink: 0;
 }
 
 .entry-div{

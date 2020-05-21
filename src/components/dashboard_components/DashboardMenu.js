@@ -5,7 +5,7 @@ import { Menu, Message } from 'semantic-ui-react'
 
 export default class DashboardMenu extends React.Component {
   state = {}
-  handleClick = () => this.setState({ message: 'You Clicked Something' })
+  handleClick = () => this.setState({ message: 'You Clicked' })
 
   render() {
     const { message } = this.state

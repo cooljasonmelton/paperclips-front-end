@@ -16,11 +16,9 @@ componentDidMount(){
 
 getContent = () => {
     let { entries } = this.props.state.login
-
     let todayEntry = entries.filter(entry => {
         return entry.created_at.substring(0,10) === dateEntryId()
     })
-
     if (todayEntry.length > 0){
         this.setState({
             content: todayEntry[0].content
@@ -64,7 +62,6 @@ handleSubmit = e => {
         this.props.login({
             entry: entry
         })
-        console.log(this.props.state)
         this.getContent()
     })
 }
@@ -85,7 +82,7 @@ handleSubmit = e => {
             <Segment> 
                 <Form style={{padding: "10px"}} onBlur={this.handleSubmit} >
                     <Form.TextArea
-                        style={{border: 0, minHeight: '50vh', fontSize: '2.25vh'}}
+                        style={{border: 0, minHeight: '60vh', fontSize: '2.25vh'}}
                         name="content"
                         label=""
                         onChange={this.handleChange}

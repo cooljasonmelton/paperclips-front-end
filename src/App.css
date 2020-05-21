@@ -1,16 +1,17 @@
 .App{
-  background-color: white;
   margin: 20px 0;
 }
 
 .navbar-title{
-  padding: 0 1vw 1vh;
+  background-color: white;
+  padding: 0 1vw 2vh;
   margin: auto 0;
+
 }
 
 .signup-container{
-  background-color: white;
-  margin: auto;
+  margin: 0;
+
 }
 
 .signup{

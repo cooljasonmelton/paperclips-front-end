@@ -17,10 +17,10 @@ export default class PromptMenu extends React.Component {
     return (
       <div>
         <Menu vertical>
-          <Menu.Item onClick={this.handleClick}>Get a Prompt</Menu.Item>
+          <Menu.Item style={{color: 'black', backgroundColor: 'white'}} onClick={this.handleClick}>Get a Prompt</Menu.Item>
+          {message && <Menu.Item><Message content={message} style={{margin: '0'}} /></Menu.Item>}
         </Menu>
-
-        {message && <Message content={message} />}
+        
       </div>
     )
   }

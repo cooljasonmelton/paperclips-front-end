@@ -50,13 +50,14 @@ class Login extends Component{
     render(){
         return(
             <Form onSubmit={this.handleSubmit} style={{ paddingTop: "2.5vh", backgroundColor:"white"}}>
-                <Form.Group>
+                <Form.Group >
                     <Form.Field>
                         <label>Email:</label>
                         <input placeholder='email@email.com' 
                             name="email"
                             value={this.state.email}
                             onChange={this.handleChange}
+                            autoComplete="current-email"
                         />
                     </Form.Field>
                     <Form.Field>
@@ -66,6 +67,7 @@ class Login extends Component{
                             name="password"
                             value={this.state.password}
                             onChange={this.handleChange}
+                            autoComplete="current-password"                            
                         />
                     </Form.Field>
                     <Button style={{margin: "2.1em 0"}} size='mini' className="login-submit" type='submit'>Login</Button>

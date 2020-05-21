@@ -45,7 +45,9 @@ class Calendar extends React.Component {
     const { entries } = this.props.state.login
     if (entries.length > 0){
       return entries.map(entry => {
-        return { title: 'WROTE TODAY', date: entry.created_at.substring(0, 10)}
+        return { 
+        title: `WROTE ${ entry.wordcount > 1 ? entry.wordcount + ' WORDS' : entry.wordcount + ' WORD' } `, 
+        date: entry.created_at.substring(0, 10)}
       })
     }
   }

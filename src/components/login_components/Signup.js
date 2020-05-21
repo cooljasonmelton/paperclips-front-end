@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Segment, Button, Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 
@@ -58,44 +58,48 @@ class SignUp extends Component{
 
     render(){
         return(
-            <Form className="signup" onSubmit={this.handleSubmit} style={{backgroundColor:"white"}}>
-                <Form.Field>
-                    <label>Name:</label>
-                    <input placeholder='Emily Dickinson' 
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                    />
+            <Segment className="signup-container">
 
-                </Form.Field>
-                <Form.Field>
-                    <label>Email:</label>
-                    <input placeholder='email@email.com'
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.handleChange} 
-                    />
-                </Form.Field>
-                <Form.Field>
-                    <label>Daily Work Count Goal:</label>
-                    <input type="number" 
-                        placeholder='500'
-                        name="currentGoal"
-                        value={this.state.currentGoal}
-                        onChange={this.handleChange} 
-                    />
-                </Form.Field>
-                <Form.Field>
-                    <label>Password:</label>
-                    <input type="password" 
-                        placeholder='password' 
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
-                </Form.Field>
-                <Button type='submit'>Sign Up!</Button>
-            </Form>
+                <Form className="signup" onSubmit={this.handleSubmit} style={{backgroundColor:"white"}}>
+                    <Form.Field>
+                        <label>Name:</label>
+                        <input placeholder='Emily Dickinson' 
+                            name="name"
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                        />
+
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Email:</label>
+                        <input placeholder='email@email.com'
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.handleChange} 
+                        />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Daily Work Count Goal:</label>
+                        <input type="number" 
+                            placeholder='500'
+                            name="currentGoal"
+                            value={this.state.currentGoal}
+                            onChange={this.handleChange} 
+                        />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Password:</label>
+                        <input type="password" 
+                            placeholder='password' 
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            autoComplete="new-password"
+                        />
+                    </Form.Field>
+                    <Button type='submit'>Sign Up!</Button>
+                </Form>
+            </Segment>
         )
     }
 }
