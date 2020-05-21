@@ -28,13 +28,15 @@ getContent = () => {
 
 currentWordCount = () => {
     if (this.state.content !== "") {
-        return this.state.content.split(' ').length
+        let wordCount = this.state.content.split(' ').length
+        this.props.updateWordCount(wordCount)
+        return wordCount
     } else {
         return 0
     }
 }
 
-handleChange = (e) => {
+handleChange = e => {
     this.setState({
         [e.target.name]: e.target.value
     })
@@ -79,10 +81,10 @@ handleSubmit = e => {
             {!this.props.state.login.entries ?
             <h4>LOADING...</h4>
             :
-            <Segment> 
+            <Segment style={{backgroundColor: 'white'}}> 
                 <Form style={{padding: "10px"}} onBlur={this.handleSubmit} >
                     <Form.TextArea
-                        style={{border: 0, minHeight: '60vh', fontSize: '2.25vh'}}
+                        style={{border: 0, minHeight: '60vh', fontSize: '2.25vh', backgroundColor: 'white'}}
                         name="content"
                         label=""
                         onChange={this.handleChange}

@@ -12,12 +12,6 @@ class Auth extends Component {
     }
 
 
-    componentDidMount(){
-        
-    }
-
-
-
     render(){
         return<></>
     }

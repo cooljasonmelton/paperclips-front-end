@@ -12,8 +12,11 @@
 }
 
 .dash-calendar{
-    padding: 5vh 1vw;
+    padding: 5vh 5vw 5vh 1vw;
     width: 70vw;
     height: auto;
 }
 
+.calendar-link:hover {
+    color: blue;
+}

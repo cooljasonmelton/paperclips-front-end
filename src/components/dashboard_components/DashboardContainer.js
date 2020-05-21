@@ -15,7 +15,7 @@ const DashboardContainer = () => {
                     <DashboardMenu />
                 </div>
                 <div className='dash-calendar'>
-                    <Segment >
+                    <Segment style={{backgroundColor: 'white'}}>
                         <Calendar/>
                     </Segment>
                 </div>

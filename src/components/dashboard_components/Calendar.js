@@ -46,7 +46,7 @@ class Calendar extends React.Component {
     if (entries.length > 0){
       return entries.map(entry => {
         return { 
-        title: `WROTE ${ entry.wordcount > 1 ? entry.wordcount + ' WORDS' : entry.wordcount + ' WORD' } `, 
+        title: `${ entry.wordcount > 1 ? entry.wordcount + ' WORDS' : entry.wordcount + ' WORD' } `, 
         date: entry.created_at.substring(0, 10)}
       })
     }
@@ -82,36 +82,35 @@ class Calendar extends React.Component {
         <EntryPreview togglePreview={this.togglePreview} />
 
         :
-        
         <FullCalendar 
-        plugins={[ dayGridPlugin, interactionPlugin]} 
-        header={{
-          left:   'title',
-          center: '',
-          right:  'today prev,next'
-        }}
-        dateClick={this.handleDateClick}
-        defaultView="dayGridMonth" 
-        eventSources={[
-          {
-            events: this.renderFirstDay(),
-            color: "green", 
-            textColor: "white"
+          plugins={[ dayGridPlugin, interactionPlugin]} 
+          header={{
+            left:   'title',
+            center: '',
+            right:  'today prev,next'
+          }}
+          dateClick={this.handleDateClick}
+          defaultView="dayGridMonth" 
+          eventSources={[
+            {
+              events: this.renderFirstDay(),
+              color: "green", 
+              textColor: "white"
 
-          },
-          {
-            events: this.renderWroteToday(),
-            color: "gray", 
-            textColor: "white"
+            },
+            {
+              events: this.renderWroteToday(),
+              color: "gray", 
+              textColor: "white"
 
-          },
-          {
-            events: this.renderCompletedGoal(),
-            color: "blue", 
-            textColor: "white"
-          }
-        ]}
-      />
+            },
+            {
+              events: this.renderCompletedGoal(),
+              color: "blue", 
+              textColor: "white"
+            }
+          ]}
+        />
       }
     
 

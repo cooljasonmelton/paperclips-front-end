@@ -8,11 +8,17 @@
 .prompt-menu{
     max-width: 25vw;
     height: auto;
-    padding: 5.3vh 1vw;
+    padding: 5.3vh 0vw 0vh 4.5vw;
+}
+
+.award-menu{
+    max-width: 25vw;
+    height: auto;
+    padding: 5.3vh 4.5vw 0vh 0vw;
 }
 
 .entry-div{
-    padding: 5vh 5vw;
+    padding: 5vh 2vw;
     width: 70vw;
     height: auto;
 }
@@ -27,7 +33,4 @@
     margin: 0;
 }
 
-.calendar-link:hover {
-    color: blue;
-    
-}
+

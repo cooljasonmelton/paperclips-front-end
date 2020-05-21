@@ -3,23 +3,40 @@ import './EntryContainer.css';
 import Entry from './Entry'
 import PromptMenu from './PromptMenu'        
 import Auth from '../Auth'
+import ImageAwardContainer from './ImageAwardContainer';
 
 
-const EntryContainer = () => {
-    return (
-        <>
-            <div className="entry-container">
-                <div className="prompt-menu">
-                    <PromptMenu/>
+class EntryContainer extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            wordCount: 0
+        }
+    }
+
+    updateWordCount = num => {
+        this.setState({wordCount: num})
+    }
+
+    render(){
+        return (
+            <>
+                <div className="entry-container">
+                    <div className="prompt-menu">
+                        <PromptMenu/>
+                    </div>
+                    <div className="entry-div">
+                        <Entry updateWordCount={this.updateWordCount}/>
+                    </div>
+                    <div className='award-menu'>
+                        <ImageAwardContainer wordCount={this.state.wordCount}/>
+                    </div>
                 </div>
-                <div className="entry-div">
-                    <Entry/>
-                </div>
-            </div>
-            <Auth/>
-        </>
+                <Auth/>
+            </>
+        )
 
-    )
+    }
 }
 
 export default EntryContainer 

@@ -9,6 +9,7 @@ import Title from './Title'
 
 class Navbar extends Component {
   state = { activeItem: '' }
+
   
   handleItemClick = (e, { name }) => {
     if (name === 'dashboard') {
