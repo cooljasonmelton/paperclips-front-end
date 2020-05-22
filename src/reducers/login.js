@@ -3,7 +3,7 @@ export default function login(state = {
     name: "",
     email: "",
     entries: [],
-    currentGoal: "" 
+    currentGoal: ""
     }, action) {
     switch (action.type) {
         case 'LOGIN_USER':
