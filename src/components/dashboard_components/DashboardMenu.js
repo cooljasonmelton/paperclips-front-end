@@ -14,8 +14,7 @@ export default class DashboardMenu extends React.Component {
       <div>
         <Menu vertical>
           <Menu.Item onClick={this.handleClick}>Analytics</Menu.Item>
-          <Menu.Item onClick={this.handleClick}>Set Writing Goal</Menu.Item>
-          <Menu.Item onClick={this.handleClick}>Update Profile</Menu.Item>
+          <Menu.Item onClick={this.handleClick}>Edit Profile</Menu.Item>
         </Menu>
 
         {message && <Message content={message} />}
