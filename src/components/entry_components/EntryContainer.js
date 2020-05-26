@@ -22,14 +22,12 @@ class EntryContainer extends React.Component{
         return (
             <>
                 <div className="entry-container">
-                    <div className="prompt-menu">
+                   <div className="prompt-menu">
                         <PromptMenu/>
+                        <ImageAwardContainer wordCount={this.state.wordCount}/>
                     </div>
                     <div className="entry-div">
                         <Entry updateWordCount={this.updateWordCount}/>
-                    </div>
-                    <div className='award-menu'>
-                        <ImageAwardContainer wordCount={this.state.wordCount}/>
                     </div>
                 </div>
                 <Auth/>

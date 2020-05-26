@@ -3,6 +3,7 @@ import { Menu } from 'semantic-ui-react'
 import ImageAward from './ImageAward'
 import { connect } from 'react-redux'
 import { dateEntryId } from '../../date_functions/dates'
+import solitaire from './solitaire.mp4';
 
 class ImageAwardContainer extends React.Component {
   state = {}
@@ -51,12 +52,12 @@ class ImageAwardContainer extends React.Component {
         imgAwards.unshift(
         <>
           <Menu.Item>
-            Congrats, You Hit Your Goal!
+            Completed Goal!
           </Menu.Item>
           <Menu.Item style={{}}>
             <iframe 
             width="175"
-            src="https://www.youtube.com/embed/GbQ5OveB6TY?controls=0;&autoplay=1" 
+            src={solitaire} 
             frameborder="0" 
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen></iframe>
@@ -72,8 +73,8 @@ class ImageAwardContainer extends React.Component {
     return (
       <div>
         <Menu vertical>
-          <Menu.Item style={{textAlign: "center"}}>
-            Awards
+          <Menu.Item style={{}}>
+            Milestones:
           </Menu.Item>
           {this.renderImageAwards()}
         </Menu>
