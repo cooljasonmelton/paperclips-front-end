@@ -52,15 +52,10 @@ class ImageAwardContainer extends React.Component {
         imgAwards.unshift(
         <>
           <Menu.Item>
-            Completed Goal!
+            <h4>Reached Goal!</h4>
           </Menu.Item>
-          <Menu.Item style={{}}>
-            <iframe 
-            width="175"
-            src={solitaire} 
-            frameborder="0" 
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
+          <Menu.Item>
+            <iframe width="175" src={solitaire} ></iframe>
           </Menu.Item>
         </>
         )
