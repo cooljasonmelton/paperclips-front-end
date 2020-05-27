@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Segment } from 'semantic-ui-react'
 import ImageAward from './ImageAward'
 import { connect } from 'react-redux'
 import { dateEntryId } from '../../date_functions/dates'
@@ -51,12 +51,11 @@ class ImageAwardContainer extends React.Component {
       if (wordCount >= this.props.state.login.currentGoal) {
         imgAwards.unshift(
         <>
-          <Menu.Item>
-            <h4>Reached Goal!</h4>
-          </Menu.Item>
-          <Menu.Item>
-            <iframe width="175" src={solitaire} ></iframe>
-          </Menu.Item>
+          <Segment style={{width: '17vw' }} >
+          <h4>Reached Goal of {this.props.state.login.currentGoal}!</h4>
+
+            <iframe style={{width: '15vw', height: 'auto', margin: "0 auto"}} src={solitaire} ></iframe>
+          </Segment>
         </>
         )
       }
@@ -66,15 +65,13 @@ class ImageAwardContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <Menu vertical>
-          <Menu.Item style={{}}>
-            Milestones:
-          </Menu.Item>
-          {this.renderImageAwards()}
-        </Menu>
+      <>
+        <Segment style={{width: '20vw' }} className="">
+          <h3> Achievements:</h3>
+          {this.renderImageAwards()}         
+        </Segment>
         
-      </div>
+      </>
     )
   }
 }

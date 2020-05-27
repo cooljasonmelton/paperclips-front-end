@@ -59,7 +59,6 @@ class SignUp extends Component{
     render(){
         return(
             <Segment className="signup-container">
-
                 <Form className="signup" onSubmit={this.handleSubmit}>
                     <Form.Field>
                         <label>Name:</label>

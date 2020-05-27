@@ -10,8 +10,21 @@ const Analytics = props => {
     const numberWithCommas = x => {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-
     const { entries } = props.state.login
+
+    if (entries.length === 0){
+        return (
+            
+            <Segment style={{width: '20vw' }}>
+                <h3> Analytics:</h3>
+                <Segment>
+                    Begin an entry to start seeing analytics.
+                </Segment>
+            </Segment>
+        )
+    }
+
+
 
     let allWords = []
     entries.map(e => {
@@ -27,16 +40,16 @@ const Analytics = props => {
             longestEntry = e
         }
     })
-
  
     return(
         <Segment style={{width: '20vw' }} className="">
             <h3> Analytics:</h3>
-            <Segment><LineChart/></Segment>
+            <Segment onClick={props.chartClick}><LineChart chartClick={props.chartClick}/></Segment>
             <Segment>Total Words: <br/> {numberWithCommas(totalWords)}</Segment>
-            <Segment>Longest Entry Date: <br/> {pretifyThisDate(longestEntry.created_at)}</Segment>
-            <Segment>Longest Entry Word Count: <br/> {numberWithCommas(longestEntry.wordcount)}</Segment>            
+            <Segment>Date of Longest Entry: <br/> {pretifyThisDate(longestEntry.created_at)}</Segment>
+            <Segment>Word Count of Longest Entry: <br/> {numberWithCommas(longestEntry.wordcount)}</Segment>            
         </Segment>
+        
     )
 }
 

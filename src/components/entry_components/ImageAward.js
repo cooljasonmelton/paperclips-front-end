@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Segment } from 'semantic-ui-react'
 
 class ImageAward extends React.Component {    
     state = {
@@ -9,12 +9,10 @@ class ImageAward extends React.Component {
     render(){
         return (
             <>
-                <Menu.Item>
-                    <h4>{(this.props.num + 1) * 100} words:</h4>
-                </Menu.Item>
-                <Menu.Item>
-                    <img src={this.props.img} alt={this.props.num} text='' style={{maxHeight: '30vh'}} />
-                </Menu.Item>
+                <Segment style={{width: '17vw' }} >
+                    <h4>{(this.props.num + 1) * 100} Words</h4>
+                    <img src={this.props.img} alt={this.props.num} text='' style={{width: '15vw', height: 'auto', margin: "0 auto"}} />
+                </Segment>
             </>
         ) 
     }

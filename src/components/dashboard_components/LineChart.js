@@ -13,13 +13,14 @@ const LineChart = props =>{
         if (keyA > keyB) return 1;
         return 0;
       });
-
     let dateLabels = []
     let dataWordCount = []
+    let dataGoal = []
     let i;
     for (i = 0; i < sortedEntries.length; i++) {
-        dateLabels.push(simplifyThisDate(sortedEntries[i].created_at))
-        dataWordCount.push(sortedEntries[i].wordcount)
+      dateLabels.push(simplifyThisDate(sortedEntries[i].created_at))
+      dataWordCount.push(sortedEntries[i].wordcount)
+      dataGoal.push(sortedEntries[i].goal)
     }
 
     const inputData = {
@@ -33,11 +34,22 @@ const LineChart = props =>{
             borderColor: '#83a473',
             borderWidth: 2,
             data: dataWordCount
+          },
+          {
+            label: 'Goal',
+            fill: false,
+            lineTension: 0.5,
+            backgroundColor: '#dd9bcf',
+            borderColor: '#dd9bcf',
+            borderWidth: 1.5,
+            pointBorderWidth: 0.1,
+            pointBackgroundColor: 'transparent',
+            data: dataGoal
           }
         ]
     }
     return(
-    <div>
+    <div style={{backgroundColor: "white"}}>
         <Line
         data={inputData}
         options={{
@@ -55,11 +67,10 @@ const LineChart = props =>{
 
 
 const mapStateToProps = state => {
-    return {
-      state: state
-    }
+  return {
+    state: state
   }
-  
+}
   
 export default connect(mapStateToProps)(LineChart);
   
