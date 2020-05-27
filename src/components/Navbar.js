@@ -43,7 +43,7 @@ class Navbar extends Component {
     this.setActiveItem()
     const { activeItem } = this.state
     return (      
-        <Menu className="menu1" attached='top' tabular style={{backgroundColor: 'white'}}>
+        <Menu className="menu1" attached='top' tabular style={{paddingLeft: '2vw', backgroundColor: 'white'}}>
           <div className='navbar-title'>
             <Title/>
           </div>
@@ -51,13 +51,13 @@ class Navbar extends Component {
           {this.props.state.login.id ? 
           <>
             <Menu.Item 
-              style={{backgroundColor: `${this.state.activeItem === 'dashboard' ? "white" : "white"}`}}
+              style={{ backgroundColor: `${this.state.activeItem === 'dashboard' ? "#E3E4DB" : "white"}`}}
               name='dashboard'
               active={activeItem === 'dashboard'}
               onClick={this.handleItemClick}
             />
             <Menu.Item
-              style={{backgroundColor: `${this.state.activeItem === 'write' ? "white" : "white"}`}}
+              style={{backgroundColor: `${this.state.activeItem === 'write' ? "#E3E4DB" : "white"}`}}
               name='write'
               active={activeItem === 'write'}
               onClick={this.handleItemClick}

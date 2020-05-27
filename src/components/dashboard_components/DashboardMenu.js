@@ -5,6 +5,11 @@ import Analytics from './Analytics'
 
 export default class DashboardMenu extends React.Component {
   state = {}
+
+  componentDidMount(){
+    this.setState({activeItem: 'item analytics'})
+  }
+
   handleClick = e => {
     if (this.state.activeItem === e.target.className) {
       this.setState({ message: null, activeItem: ''})
@@ -16,7 +21,7 @@ export default class DashboardMenu extends React.Component {
   }
 
   render() {
-    const { message, activeItem } = this.state
+    const { activeItem } = this.state
 
     return (
       <div>

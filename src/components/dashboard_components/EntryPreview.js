@@ -25,10 +25,7 @@ const EntryPreview = props => {
                         <a className='calendar-link' onClick={props.togglePreview}><h3>{getDate()}</h3></a>
                     </div>
                     <div className="entry-header-item"> 
-                        <h3>Word Count: {wordcount}</h3>
-                    </div>
-                    <div className="entry-header-item"> 
-                        <h3>Goal: {goal}</h3> 
+                        <h3>Word Count: {wordcount} / {goal}</h3>
                     </div>
                 </div>
             </Segment>

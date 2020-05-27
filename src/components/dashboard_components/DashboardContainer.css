@@ -1,21 +1,25 @@
 .dashboard-container{
-    background-color: white;
+    background-color: #E3E4DB;
     display: flex;
     justify-content: space-around;
+    height: 120vh;
 }
 
 .dash-menu{
     max-width: 16.5vw;
     height: auto;
     padding: 5vh 1vw;
+
 }
 
 .dash-calendar{
     padding: 5vh 5vw 5vh 1vw;
     width: 70vw;
     height: auto;
+
 }
 
 .calendar-link:hover {
     color: blue;
 }
+

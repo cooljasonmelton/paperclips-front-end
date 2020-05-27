@@ -84,7 +84,9 @@ class Calendar extends React.Component {
         <EntryPreview togglePreview={this.togglePreview} />
 
         :
+        
         <FullCalendar 
+          className="da-calendar"
           plugins={[ dayGridPlugin, interactionPlugin]} 
           header={{
             left:   'title',
@@ -96,20 +98,20 @@ class Calendar extends React.Component {
           eventSources={[
             {
               events: this.renderFirstDay(),
-              color: "green", 
-              textColor: "white"
+              color: "#b5e6cb", 
+              textColor: "#566246",
 
             },
             {
               events: this.renderWroteToday(),
-              color: "gray", 
-              textColor: "white"
+              color: "#E3E4DB", 
+              textColor: "#566246"
 
             },
             {
               events: this.renderCompletedGoal(),
-              color: "blue", 
-              textColor: "white"
+              color: "#DD9BCF", 
+              textColor: "#566246"
             }
           ]}
         />

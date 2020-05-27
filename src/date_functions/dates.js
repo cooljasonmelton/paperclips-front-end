@@ -34,3 +34,10 @@ export const pretifyThisDate = date => {
     
     return thisMonth + ' ' + dd + ', ' + yyyy;
 }
+
+export const simplifyThisDate = date => {
+    let dd = date.substring(8, 10)
+    let mm = date.substring(6, 7)
+    let yy = date.substring(2, 4) 
+    return parseInt(mm) + '/' + parseInt(dd) + '/' + yy;
+}

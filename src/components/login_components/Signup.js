@@ -60,7 +60,7 @@ class SignUp extends Component{
         return(
             <Segment className="signup-container">
 
-                <Form className="signup" onSubmit={this.handleSubmit} style={{backgroundColor:"white"}}>
+                <Form className="signup" onSubmit={this.handleSubmit}>
                     <Form.Field>
                         <label>Name:</label>
                         <input placeholder='Emily Dickinson' 

@@ -74,8 +74,9 @@ handleSubmit = e => {
             <Segment> 
                 <div className="entry-header">
                     <div className="entry-header-item"> <h3>{prettyDate()}</h3></div>
-                    <div className="entry-header-item"> <h3>Word Count: {this.currentWordCount()}</h3></div>
-                    <div className="entry-header-item"> <h3>Goal: { this.props.state.login.currentGoal }</h3> </div>
+                    <div className="entry-header-item"> 
+                        <h3>Word Count: {this.currentWordCount()} / { this.props.state.login.currentGoal }</h3>
+                    </div>
                 </div>
             </Segment>
             {!this.props.state.login.entries ?
@@ -84,8 +85,9 @@ handleSubmit = e => {
             <Segment style={{backgroundColor: 'white'}}> 
                 <Form style={{padding: "10px"}} onBlur={this.handleSubmit} >
                     <Form.TextArea
-                        style={{border: 0, minHeight: '60vh', fontSize: '2.25vh', backgroundColor: 'white'}}
+                        style={{border: 0, minHeight: '70vh', fontSize: '2.25vh', backgroundColor: 'white'}}
                         name="content"
+                        placeholder="Today's entry..."
                         label=""
                         onChange={this.handleChange}
                         value={this.state.content}

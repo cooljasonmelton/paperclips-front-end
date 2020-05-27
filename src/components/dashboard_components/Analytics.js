@@ -3,12 +3,11 @@ import { Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import { pretifyThisDate } from '../../date_functions/dates';
+import LineChart from './LineChart'
 
 
 const Analytics = props => {
-    console.log(props.state.login.entries)
-
-    const numberWithCommas = (x) => {
+    const numberWithCommas = x => {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
@@ -29,13 +28,11 @@ const Analytics = props => {
         }
     })
 
-    console.log(longestEntry)
-
-
-
+ 
     return(
-        <Segment style={{width: '20vw'}} className="">
+        <Segment style={{width: '20vw' }} className="">
             <h3> Analytics:</h3>
+            <Segment><LineChart/></Segment>
             <Segment>Total Words: <br/> {numberWithCommas(totalWords)}</Segment>
             <Segment>Longest Entry Date: <br/> {pretifyThisDate(longestEntry.created_at)}</Segment>
             <Segment>Longest Entry Word Count: <br/> {numberWithCommas(longestEntry.wordcount)}</Segment>            

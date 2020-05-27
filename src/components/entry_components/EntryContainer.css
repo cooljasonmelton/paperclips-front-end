@@ -1,5 +1,5 @@
 .entry-container{
-    background-color: white;
+    background-color: #E3E4DB;
     display: flex;
     justify-content: space-around;
     min-height: 100vh;
@@ -12,11 +12,9 @@
 }
 
 
-
 .entry-div{
     padding: 5vh 2vw;
     width: 70vw;
-    height: auto;
 }
 
 .entry-header{
@@ -28,5 +26,12 @@
 .entry-header-item {
     margin: 0;
 }
+
+.entry-preview-div{
+    height: 80vh;
+    overflow: auto;
+}
+
+
 
 

@@ -1,22 +1,40 @@
-.App{
-  margin: 20px 0;
+.App {
+  margin: 20px 0 auto auto;
+}
+
+button.ui.button {
+  color: #566246;
+  background-color: #b5e6cb;
 }
 
 .navbar-title{
-  background-color: white;
+  background-color:white;
   padding: 0 1vw 2vh;
   margin: auto 0;
 
 }
 
-.signup-container{
-  margin: 0;
+.ui.top.attached.tabular.menu1.menu{
+  background-color: #E3E4DB;
 
 }
 
-.signup{
+.ui.segment.signup-container{
+  background-color: #E3E4DB;
+  margin: 0;
+  padding: 10px;
+  height: 90vh;
+
+}
+
+.ui.form.signup{
+  background-color: white;
+  padding: 2vh 2vw;
   margin: 3em auto;
   width: 20em;
+  border-radius: 1em;
+  border-style: solid;
+  border-width: thin;
 }
 
 .title-container{
@@ -44,18 +62,4 @@
   margin-left: auto;
 }
 
-/* div.ui.segment, menu {
-  border-style: outset;
-  border-color: #dbe6b5;
-  box-shadow: 3px 3px 8px #dbe6b5;
-}
 
-.ui.vertical.menu {  
-  border-color: #e6bbb5;
-  box-shadow: 3px 3px 8px #e6bbb5;
-
-
-} */
-
-
-/* b5e6cb */

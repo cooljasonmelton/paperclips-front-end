@@ -34,10 +34,14 @@ class Title extends Component{
             })
         }
     }
+    handleClick = () => {
+      window.location.reload()
+      this.props.history.push('/dashboard')
+    }
 
     render(){
         return (
-            <div className="title-container">
+            <div onClick={this.handleClick} className="title-container">
                 <img className="title-pic" 
                     src={process.env.PUBLIC_URL + '/paperclips.jpeg'} 
                     alt="paperclips"
@@ -50,6 +54,6 @@ class Title extends Component{
 
 const mapDispatchToProps = dispatch => ({
     login: formData => dispatch({ type: 'LOGIN_USER', payload: formData })
-  })
+})
 
 export default withRouter(connect(null, mapDispatchToProps)(Title));
