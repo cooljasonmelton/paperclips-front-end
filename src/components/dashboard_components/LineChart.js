@@ -49,7 +49,14 @@ const LineChart = props =>{
         ]
     }
     return(
-    <div style={{backgroundColor: "white"}}>
+    <div 
+      style={{
+        backgroundColor: "white",
+        borderStyle: 'solid', 
+        borderColor: 'white',
+        borderWidth: 'thick'
+      }}    
+    >
         <Line
         data={inputData}
         options={{

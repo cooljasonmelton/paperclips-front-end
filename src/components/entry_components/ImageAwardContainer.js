@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Segment } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import ImageAward from './ImageAward'
 import { connect } from 'react-redux'
 import { dateEntryId } from '../../date_functions/dates'
@@ -64,11 +64,14 @@ class ImageAwardContainer extends React.Component {
   } 
 
   render() {
+    console.log(this.renderImageAwards())
     return (
       <>
         <Segment style={{width: '20vw' }} className="">
           <h3> Achievements:</h3>
-          {this.renderImageAwards()}         
+
+          {this.renderImageAwards()}
+                 
         </Segment>
         
       </>
