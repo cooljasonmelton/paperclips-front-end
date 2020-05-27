@@ -13,11 +13,13 @@ const LineChart = props =>{
         if (keyA > keyB) return 1;
         return 0;
       });
+
+
+
     let dateLabels = []
     let dataWordCount = []
     let dataGoal = []
-    let i;
-    for (i = 0; i < sortedEntries.length; i++) {
+    for (let i = 0; i < sortedEntries.length; i++) {
       dateLabels.push(simplifyThisDate(sortedEntries[i].created_at))
       dataWordCount.push(sortedEntries[i].wordcount)
       dataGoal.push(sortedEntries[i].goal)
@@ -38,7 +40,7 @@ const LineChart = props =>{
           {
             label: 'Goal',
             fill: false,
-            lineTension: 0.5,
+            lineTension: 0,
             backgroundColor: '#dd9bcf',
             borderColor: '#dd9bcf',
             borderWidth: 1.5,
