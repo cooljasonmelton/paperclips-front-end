@@ -78,7 +78,7 @@ class SignUp extends Component{
                         />
                     </Form.Field>
                     <Form.Field>
-                        <label>Daily Work Count Goal:</label>
+                        <label>Daily Word Count Goal:</label>
                         <input type="number" 
                             placeholder='500'
                             name="currentGoal"
