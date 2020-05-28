@@ -80,7 +80,7 @@ class EditUserForm extends Component{
                         />
                     </Form.Field>
                     <Form.Field>
-                        <label>Daily Work Count Goal:</label>
+                        <label>Daily Word Count Goal:</label>
                         <input type="number" 
                             name="currentGoal"
                             value={this.state.currentGoal}
