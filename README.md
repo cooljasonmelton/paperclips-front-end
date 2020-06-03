@@ -4,6 +4,7 @@
 <div align="center">
 ![demo-of-app](https://github.com/cooljasonmelton/paperclips-front-end/blob/master/Animated%20GIF-downsized_large%20(2).gif?raw=true)​
 </div>
+
 ### Link to Back End
 <a href='https://github.com/cooljasonmelton/paperclips-front-end'>https://github.com/cooljasonmelton/paperclips-back-end<a>
 
