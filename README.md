@@ -1,36 +1,39 @@
 # Paperclips (front end)
-* A JS React/Ruby on Rails journaling app that allows users to track word counts, writing analytics, and awards cute animal pics for hitting goals.  
+* A JS React/Ruby on Rails journaling application that allows users to track word counts, writing analytics, and awards cute animal pics and videos for hitting goals.  
 
 ![demo-of-app](https://github.com/cooljasonmelton/paperclips-front-end/blob/master/Animated%20GIF-downsized_large%20(2).gif?raw=true)​
 
 ## Application Features
-* Text area for daily journal entries that tracks word count
-* Writing prompts scraped from https://thejohnfox.com/2016/06/creative-nonfiction-prompts/
+* Text area for daily journal entries that tracks word count and automatically updates date
 * Awards cute animal pictures for every 100 words from Unsplash API (https://unsplash.com/)
-* <a href='https://github.com/fullcalendar/fullcalendar-react'> Calender </a> that shows progress and allows user to read old journal entries.
+* Writing prompts scraped from https://thejohnfox.com/2016/06/creative-nonfiction-prompts/
+* Calendar showing progress and allowing user to read old journal entries
+* Analytics and line graph showing writing progress and achievements 
 
 ## Built With​
-* React.js
+* React
 * Ruby on Rails RESTful API
 * Redux and BrowserRouter
-* FullCalender
-* Semantic UI
+* <a href='https://github.com/fullcalendar/fullcalendar-react'>FullCalender</a>
+* <a href='https://www.chartjs.org/'>Chart.js</a>
+* <a href='http://watir.com/'>Watir (webscraper)</a>
+* Semantic UI React
 ​
 ## Installation Instructions
 1. Cd into preferred directory and clone repo for front-end and back-end:
 ```bash
-git clone git@github.com:cooljasonmelton/flat-note-front-end.git
-git clone git@github.com:cooljasonmelton/flat-note-back-end.git
+git clone git@github.com:cooljasonmelton/paperclips-front-end.git
+git clone git@github.com:cooljasonmelton/paperclips-back-end.git
 ```
-2. Cd into directory 'flat-note-back-end' repo directory and migrate database:
+2. Cd into directory 'paperclips-back-end' and migrate database:
 ```bash
 rails db:migrate
 ```
-3. Start a rails server:
+3. Start rails server:
 ```bash
 rails server
 ```
-4. Open a new terminal tab. Cd into 'flat-note-front-end'. Install and run npm:
+4. Open a new terminal tab. Cd into 'paperclips-front-end'. Install and run npm:
 ```bash
 npm install && npm start
 ```
