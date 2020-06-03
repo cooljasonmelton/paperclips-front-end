@@ -7,14 +7,12 @@ const LineChart = props =>{
 
     const { entries } = props.state.login
     let sortedEntries = entries.sort(function(a, b) {
-        let keyA = new Date(a.created_at),
-            keyB = new Date(b.created_at);
-        if (keyA < keyB) return -1;
-        if (keyA > keyB) return 1;
-        return 0;
-      });
-
-
+      let keyA = new Date(a.created_at),
+          keyB = new Date(b.created_at);
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
+      return 0;
+    });
 
     let dateLabels = []
     let dataWordCount = []

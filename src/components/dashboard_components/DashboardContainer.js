@@ -26,9 +26,3 @@ const DashboardContainer = () => {
 }
 
 export default DashboardContainer
-
-// #C6FAD2 
-// #DD9BCF
-// #F6FFEE
-// #F48882
-// #FAD2CC
