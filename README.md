@@ -4,7 +4,9 @@
 ![demo-of-app](https://github.com/cooljasonmelton/paperclips-front-end/blob/master/Animated%20GIF-downsized_large%20(2).gif?raw=true)​
 
 ### Link to Back End
+<div align="center">
 <a href='https://github.com/cooljasonmelton/paperclips-front-end'>https://github.com/cooljasonmelton/paperclips-back-end<a>
+</div>
 
 ## Application Features
 * Text area for daily journal entries that tracks word count and automatically updates date
