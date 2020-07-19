@@ -2,6 +2,7 @@
 * A JS React/Ruby on Rails journaling application that allows users to track word counts, writing analytics, and awards cute animal pics and videos for hitting goals.  
 
 <img src="https://github.com/cooljasonmelton/paperclips-front-end/blob/master/Animated%20GIF-downsized_large%20(2).gif" width=""/>
+<a href="https://www.youtube.com/watch?v=vqtw3m22R2k&t=4s"> Demo </a>
 
 ### Link to Back End
 <a href='https://github.com/cooljasonmelton/paperclips-front-end'>https://github.com/cooljasonmelton/paperclips-back-end<a>
